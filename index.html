@@ -1,180 +1,531 @@
-<!-- ====== MEMORIÊ — FINAL CTA (VERSÃO BLINDADA) ====== -->
-<section class="md-final" id="pedido">
-  <div class="md-final__wrap">
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Memoriê Digital</title>
+  <meta name="description" content="Um presente com memória, afeto e identidade — feito sob medida para a sua história." />
 
-    <h2 class="md-final__title">Pronto para criar o seu Memoriê?</h2>
-    <p class="md-final__sub">
-      Um presente com memória, afeto e identidade — feito sob medida para a sua história.
-    </p>
+  <style>
+    :root{
+      --bg:#f6f2ec;
+      --card:#ffffff;
+      --text:#1d1d1f;
+      --muted:rgba(29,29,31,.70);
+      --muted2:rgba(29,29,31,.55);
+      --line:rgba(0,0,0,.08);
+      --accent:#b26b57;
+      --accent2:rgba(178,107,87,.18);
+      --radius:22px;
+      --shadow:0 18px 50px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 50% -10%, rgba(0,0,0,.06), transparent 55%),
+        var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue";
+    }
 
-    <div class="md-final__card">
-      <div class="md-final__price">
-        <span class="md-final__priceLabel">a partir de</span>
-        <span class="md-final__priceValue">R$47</span>
-      </div>
+    /* links blindados */
+    a{color:inherit;text-decoration:none}
+    a:focus{outline:2px solid rgba(178,107,87,.35);outline-offset:3px;border-radius:12px}
 
-      <div class="md-final__bullets" role="list">
-        <div class="md-final__bullet" role="listitem">
-          <span class="md-final__dot" aria-hidden="true"></span>
-          <span>Você envia fotos e contexto</span>
-        </div>
-        <div class="md-final__bullet" role="listitem">
-          <span class="md-final__dot" aria-hidden="true"></span>
-          <span>Entrega com acabamento premium</span>
-        </div>
-        <div class="md-final__bullet" role="listitem">
-          <span class="md-final__dot" aria-hidden="true"></span>
-          <span>Opcional: música exclusiva</span>
-        </div>
-      </div>
+    .wrap{max-width:1100px;margin:0 auto;padding:22px 18px 70px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      position:sticky;top:0;z-index:10;
+      padding:12px 0;background:linear-gradient(to bottom, rgba(246,242,236,.92), rgba(246,242,236,.65));
+      backdrop-filter: blur(10px);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:34px;width:auto;display:block}
+    .brand strong{font-weight:800;letter-spacing:.2px}
+    .nav{display:flex;gap:14px;align-items:center}
+    .nav a{font-size:13px;color:var(--muted);padding:8px 10px;border-radius:999px;border:1px solid transparent}
+    .nav a:hover{border-color:var(--line);background:rgba(255,255,255,.55)}
 
-      <!-- IMPORTANTE: mantenha exatamente class="md-final__btn" -->
-      <a class="md-final__btn" href="./pedido.html">Quero fazer a minha agora</a>
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 18px;border-radius:999px;background:var(--accent);color:#fff;
+      font-weight:900;letter-spacing:.2px;border:0;
+      box-shadow:0 14px 30px rgba(178,107,87,.18);
+      transition:transform .06s ease, filter .12s ease;
+    }
+    .btn:hover{filter:brightness(.98)}
+    .btn:active{transform:scale(.99)}
+    .btn--ghost{
+      background:transparent;color:var(--text);
+      border:1px solid var(--line);box-shadow:none;font-weight:800;
+    }
 
-      <p class="md-final__note">
-        *Valores finais variam conforme o pedido e são confirmados antes de produzir.
-      </p>
+    .hero{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:stretch;
+      margin-top:18px;
+    }
+    @media (max-width:920px){ .hero{grid-template-columns:1fr} .nav{display:none} }
+
+    .card{
+      background:rgba(255,255,255,.86);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .pad{padding:22px}
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(30px,4vw,52px);
+      line-height:1.05;
+      letter-spacing:-0.9px;
+    }
+    .lead{
+      margin:0 0 18px;
+      max-width:55ch;
+      color:var(--muted);
+      font-size:15.5px;
+      line-height:1.55;
+    }
+    .heroActions{display:flex;gap:10px;flex-wrap:wrap}
+
+    .mini{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:12px 12px;border-radius:16px;border:1px solid var(--line);
+      background:rgba(246,242,236,.55);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;background:var(--accent);
+      box-shadow:0 8px 18px rgba(178,107,87,.28);margin-top:4px;flex:0 0 auto;
+    }
+    .mini b{display:block;margin:0 0 2px;font-size:13.5px}
+    .mini p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.45}
+
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+    @media (max-width:920px){ .grid3{grid-template-columns:1fr} }
+
+    .section{margin-top:18px}
+    .sectionTitle{
+      margin:0 0 12px;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+    .subtle{color:var(--muted);font-size:13.5px;margin:0}
+
+    /* gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+    @media (max-width:920px){ .gallery{grid-template-columns:repeat(2,1fr)} }
+    .shot{
+      border-radius:18px;
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:#fff;
+      aspect-ratio: 4/5;
+      position:relative;
+    }
+    .shot img{
+      width:100%;height:100%;object-fit:cover;display:block;
+      transform:scale(1.01);
+    }
+    .shot span{
+      position:absolute;left:10px;bottom:10px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(255,255,255,.85);
+      border:1px solid rgba(0,0,0,.08);
+      color:rgba(29,29,31,.75);
+      font-size:12px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* video */
+    .videoWrap{
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.86);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .video{
+      width:100%;
+      aspect-ratio: 16/9;
+      background:#000;
+      display:block;
+      border:0;
+    }
+    .videoNote{
+      padding:12px 14px;
+      font-size:13px;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      background:rgba(246,242,236,.45);
+    }
+
+    /* steps */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    @media (max-width:920px){ .steps{grid-template-columns:1fr} }
+    .step{
+      padding:14px 14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.72);
+    }
+    .badge{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:28px;height:28px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(246,242,236,.65);
+      color:rgba(29,29,31,.65);
+      font-weight:800;font-size:12px;
+      margin-bottom:8px;
+    }
+    .step b{display:block;margin:0 0 6px;font-size:14px}
+    .step p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.45}
+
+    /* quotes */
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    @media (max-width:920px){ .quotes{grid-template-columns:1fr} }
+    .quote{
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.76);
+    }
+    .quote p{margin:0;color:rgba(29,29,31,.78);font-size:14px;line-height:1.5}
+    .quote small{display:block;margin-top:10px;color:var(--muted2);font-size:12px}
+
+    /* final cta */
+    .final{
+      margin-top:18px;
+      padding:48px 18px 56px;
+      background:linear-gradient(to bottom, rgba(246,242,236,0), rgba(246,242,236,1));
+      border-radius:28px;
+      border:1px solid rgba(0,0,0,.05);
+    }
+    .final h2{
+      margin:0 0 10px;
+      font-size:clamp(28px, 3.5vw, 44px);
+      letter-spacing:-.8px;
+      line-height:1.08;
+      text-align:center;
+    }
+    .final .finalSub{
+      margin:0 auto 22px;
+      max-width:54ch;
+      color:var(--muted);
+      text-align:center;
+      font-size:15.5px;
+      line-height:1.55;
+    }
+    .finalCard{
+      margin:0 auto;
+      max-width:700px;
+      padding:22px 18px 18px;
+      border-radius:24px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.90);
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+    .pricePill{
+      display:inline-flex;align-items:baseline;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(246,242,236,.75);
+      margin:4px 0 16px;
+    }
+    .pricePill .lbl{font-size:13px;color:rgba(29,29,31,.60)}
+    .pricePill .val{font-size:42px;font-weight:900;letter-spacing:-1px}
+    .finalBullets{
+      display:grid;gap:10px;margin:10px auto 18px;max-width:520px;text-align:left;
+    }
+    .finalBullets .item{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:16px;
+      border:1px solid rgba(0,0,0,.07);
+      background:rgba(246,242,236,.55);
+      color:rgba(29,29,31,.80);
+      font-size:14px;line-height:1.35;
+    }
+    .finalNote{
+      margin:12px 0 0;
+      font-size:12px;
+      color:var(--muted2);
+      line-height:1.45;
+    }
+    footer{
+      margin-top:18px;
+      text-align:center;
+      color:var(--muted2);
+      font-size:12px;
+      padding-bottom:10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <a class="brand" href="#topo" aria-label="Memoriê Digital">
+        <img src="./logomemorie.png" alt="Memoriê Digital" />
+        <strong>Memoriê Digital</strong>
+      </a>
+
+      <nav class="nav" aria-label="Navegação">
+        <a href="#exemplos">Exemplos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#video">Vídeo</a>
+        <a href="#pedido">Fazer pedido</a>
+      </nav>
+
+      <a class="btn" href="#pedido">Quero fazer a minha</a>
     </div>
 
-    <p class="md-final__footer">© Memoriê Digital • Feito com carinho no Brasil</p>
+    <!-- Hero -->
+    <section class="hero" id="topo">
+      <div class="card">
+        <div class="pad">
+          <h1>Transforme uma história em Memoriê.</h1>
+          <p class="lead">
+            Um presente com memória, afeto e identidade — feito sob medida para a sua história.
+            Você envia as fotos e o contexto. Eu cuido do resto.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn" href="#pedido">Quero fazer a minha agora</a>
+            <a class="btn btn--ghost" href="#exemplos">Ver exemplos</a>
+          </div>
+
+          <div class="grid3">
+            <div class="mini">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <b>Exclusivo</b>
+                <p>Cada Memoriê respeita quem a pessoa é e o que ela representa.</p>
+              </div>
+            </div>
+
+            <div class="mini">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <b>Premium</b>
+                <p>Entrega feita para emocionar — com acabamento limpo e elegante.</p>
+              </div>
+            </div>
+
+            <div class="mini">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <b>Opcional</b>
+                <p>Música exclusiva criada a partir da história (se você quiser).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Painel lateral -->
+      <div class="card">
+        <div class="pad">
+          <p class="sectionTitle">O que você recebe</p>
+          <p class="subtle">Uma experiência afetiva — pensada para guardar.</p>
+
+          <div style="height:12px"></div>
+
+          <div class="mini">
+            <span class="dot" aria-hidden="true"></span>
+            <div>
+              <b>Arte principal</b>
+              <p>Visual com acabamento premium (sem poluição, sem exagero).</p>
+            </div>
+          </div>
+
+          <div style="height:10px"></div>
+
+          <div class="mini">
+            <span class="dot" aria-hidden="true"></span>
+            <div>
+              <b>Música exclusiva (opcional)</b>
+              <p>Uma trilha única baseada no texto que você enviar.</p>
+            </div>
+          </div>
+
+          <div style="height:10px"></div>
+
+          <div class="mini">
+            <span class="dot" aria-hidden="true"></span>
+            <div>
+              <b>Bônus</b>
+              <p>Caricatura como bônus (quando fizer sentido para o pedido).</p>
+            </div>
+          </div>
+
+          <div style="height:16px"></div>
+
+          <a class="btn" href="#pedido" style="width:100%">Fazer pedido</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exemplos -->
+    <section class="section" id="exemplos">
+      <h2 class="sectionTitle">Alguns Memoriês</h2>
+      <p class="subtle">Exemplos reais do estilo (premium, limpo, emocional).</p>
+
+      <div style="height:12px"></div>
+
+      <div class="gallery">
+        <div class="shot">
+          <img src="./memorie-crianca.jpg" alt="Memoriê - criança" />
+          <span>Criança</span>
+        </div>
+        <div class="shot">
+          <img src="./memorie-casal.jpg" alt="Memoriê - casal" />
+          <span>Casal</span>
+        </div>
+        <div class="shot">
+          <img src="./memorie-avo.jpg" alt="Memoriê - avó" />
+          <span>Avó</span>
+        </div>
+        <div class="shot">
+          <img src="./memorie-adolescente.jpg" alt="Memoriê - adolescente" />
+          <span>Adolescente</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vídeo -->
+    <section class="section" id="video">
+      <h2 class="sectionTitle">Veja em vídeo</h2>
+      <p class="subtle">Um minuto pra sentir a proposta (sem “cara de anúncio”).</p>
+
+      <div style="height:12px"></div>
+
+      <div class="videoWrap">
+        <!-- OPÇÃO 1: YouTube/Vimeo (recomendado)
+             Troque o src abaixo pelo link EMBED do seu vídeo -->
+        <iframe
+          class="video"
+          src="https://www.youtube.com/embed/VIDEO_ID_AQUI"
+          title="Memoriê Digital - vídeo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+
+        <!-- OPÇÃO 2 (se for arquivo mp4 no repo):
+        <video class="video" controls playsinline>
+          <source src="./seu-video.mp4" type="video/mp4" />
+        </video>
+        -->
+
+        <div class="videoNote">
+          Dica: se você não quiser vídeo agora, pode remover esta seção sem afetar o resto.
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="section" id="como-funciona">
+      <h2 class="sectionTitle">Como funciona</h2>
+      <p class="subtle">Simples, rápido e com cuidado.</p>
+
+      <div style="height:12px"></div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="badge">1</span>
+          <b>Você faz o pedido</b>
+          <p>Preenche o formulário e envia fotos + contexto.</p>
+        </div>
+
+        <div class="step">
+          <span class="badge">2</span>
+          <b>Eu confirmo detalhes</b>
+          <p>Ajustamos o tom e a intenção (leve, romântica, divertida…).</p>
+        </div>
+
+        <div class="step">
+          <span class="badge">3</span>
+          <b>Você recebe algo pra guardar</b>
+          <p>Entrega feita pra emocionar — e, se quiser, música exclusiva.</p>
+        </div>
+
+        <div class="step">
+          <span class="badge">4</span>
+          <b>Combinado com você</b>
+          <p>Prazos e detalhes são combinados. Nada é publicado sem permissão.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frases / prova social -->
+    <section class="section" id="frases">
+      <h2 class="sectionTitle">Por que emociona</h2>
+      <p class="subtle">Porque não é só “uma arte”. É a história com sentimento.</p>
+
+      <div style="height:12px"></div>
+
+      <div class="quotes">
+        <div class="quote">
+          <p>“Parece que pegaram a essência da pessoa e colocaram em uma lembrança.”</p>
+          <small>— Memoriê de homenagem</small>
+        </div>
+        <div class="quote">
+          <p>“O acabamento é muito premium. Dá vontade de guardar pra sempre.”</p>
+          <small>— Memoriê de família</small>
+        </div>
+        <div class="quote">
+          <p>“A música deixou tudo ainda mais afetivo. Ficou com alma.”</p>
+          <small>— Memoriê com música exclusiva</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA (o “bonito” que você queria) -->
+    <section class="final" id="pedido">
+      <h2>Pronto para criar o seu Memoriê?</h2>
+      <p class="finalSub">
+        Cada Memoriê é criada de forma exclusiva, respeitando quem a pessoa é e o que ela representa.
+      </p>
+
+      <div class="finalCard">
+        <div class="pricePill">
+          <span class="lbl">a partir de</span>
+          <span class="val">R$47</span>
+        </div>
+
+        <div class="finalBullets" role="list">
+          <div class="item" role="listitem"><span class="dot" aria-hidden="true"></span> Você envia fotos e contexto</div>
+          <div class="item" role="listitem"><span class="dot" aria-hidden="true"></span> Entrega com acabamento premium</div>
+          <div class="item" role="listitem"><span class="dot" aria-hidden="true"></span> Opcional: música exclusiva</div>
+        </div>
+
+        <a class="btn" href="./pedido.html" style="width:100%;max-width:560px">
+          Quero fazer a minha agora
+        </a>
+
+        <p class="finalNote">
+          *Valores finais variam conforme o pedido e são confirmados antes de produzir.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Memoriê Digital • Feito com carinho no Brasil
+    </footer>
 
   </div>
-</section>
 
-<style>
-  /* ====== Escopo total (pra não vazar nem ser “engolido”) ====== */
-  .md-final{ 
-    padding: 48px 18px 56px !important;
-    background: #f6f2ec !important;
-  }
-  .md-final .md-final__wrap{
-    max-width: 980px !important;
-    margin: 0 auto !important;
-    text-align: center !important;
-  }
-
-  .md-final .md-final__title{
-    margin: 0 0 10px !important;
-    font-size: clamp(30px, 4vw, 46px) !important;
-    line-height: 1.08 !important;
-    letter-spacing: -0.8px !important;
-    color: #1d1d1f !important;
-  }
-
-  .md-final .md-final__sub{
-    margin: 0 auto 22px !important;
-    max-width: 54ch !important;
-    font-size: 15.5px !important;
-    line-height: 1.55 !important;
-    color: rgba(29,29,31,.70) !important;
-  }
-
-  .md-final .md-final__card{
-    margin: 0 auto !important;
-    max-width: 620px !important;
-    padding: 22px 18px 18px !important;
-    border-radius: 22px !important;
-    border: 1px solid rgba(0,0,0,.08) !important;
-    background: rgba(255,255,255,.88) !important;
-    box-shadow: 0 18px 50px rgba(0,0,0,.06) !important;
-  }
-
-  .md-final .md-final__price{
-    display: inline-flex !important;
-    align-items: baseline !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    padding: 10px 14px !important;
-    border-radius: 999px !important;
-    border: 1px solid rgba(0,0,0,.08) !important;
-    background: rgba(246,242,236,.75) !important;
-    margin: 4px 0 16px !important;
-  }
-
-  .md-final .md-final__priceLabel{
-    font-size: 13px !important;
-    color: rgba(29,29,31,.60) !important;
-  }
-
-  .md-final .md-final__priceValue{
-    font-size: 42px !important;
-    font-weight: 900 !important;
-    letter-spacing: -1px !important;
-    color: #1d1d1f !important;
-  }
-
-  .md-final .md-final__bullets{
-    display: grid !important;
-    gap: 10px !important;
-    margin: 10px auto 18px !important;
-    max-width: 440px !important;
-    text-align: left !important;
-    padding: 0 !important;
-  }
-
-  .md-final .md-final__bullet{
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    padding: 10px 12px !important;
-    border-radius: 14px !important;
-    border: 1px solid rgba(0,0,0,.07) !important;
-    background: rgba(246,242,236,.55) !important;
-    color: rgba(29,29,31,.80) !important;
-    font-size: 14px !important;
-    line-height: 1.35 !important;
-    margin: 0 !important;
-  }
-
-  .md-final .md-final__dot{
-    width: 10px !important;
-    height: 10px !important;
-    border-radius: 999px !important;
-    background: #b26b57 !important;
-    box-shadow: 0 8px 18px rgba(178,107,87,.28) !important;
-    flex: 0 0 auto !important;
-  }
-
-  /* ====== Blindagem de link/âncora (pra não virar “azul sublinhado”) ====== */
-  .md-final a{
-    text-decoration: none !important;
-    color: inherit !important;
-  }
-
-  .md-final .md-final__btn{
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    max-width: 440px !important;
-    padding: 14px 16px !important;
-    border-radius: 999px !important;
-    background: #b26b57 !important;
-    color: #ffffff !important;
-    font-weight: 900 !important;
-    letter-spacing: .2px !important;
-    border: 0 !important;
-    box-shadow: 0 14px 30px rgba(178,107,87,.20) !important;
-  }
-
-  .md-final .md-final__btn:hover{
-    filter: brightness(0.98) !important;
-  }
-  .md-final .md-final__btn:active{
-    transform: scale(.99) !important;
-  }
-
-  .md-final .md-final__note{
-    margin: 12px 0 0 !important;
-    font-size: 12px !important;
-    line-height: 1.45 !important;
-    color: rgba(29,29,31,.55) !important;
-  }
-
-  .md-final .md-final__footer{
-    margin: 14px 0 0 !important;
-    font-size: 12px !important;
-    color: rgba(29,29,31,.55) !important;
-  }
-</style>
-<!-- ====== /MEMORIÊ — FINAL CTA ====== -->
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
