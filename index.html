@@ -1,331 +1,121 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Memoriê Digital</title>
-  <meta name="description" content="Vídeo personalizado com caricatura e música feita sob medida para uma pessoa especial. A partir de R$47." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memoriê Digital</title>
 
-  <style>
-    :root{
-      --bg:#f6efe6;      /* bege */
-      --ink:#2f4a52;     /* azul petróleo */
-      --accent:#c76a3a;  /* terracota */
-      --card:#ffffff;
-      --muted: rgba(47,74,82,.75);
-      --line: rgba(47,74,82,.12);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:var(--bg);
-      color:var(--ink);
-    }
-    .wrap{max-width:1060px;margin:0 auto;padding:0 18px}
-    header{padding:34px 0 10px}
-    .brand{
-      display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;
-    }
-    .logo{
-      margin:0;
-      font-family: Georgia, "Times New Roman", serif;
-      letter-spacing:.2px;
-      font-size:34px;
-      line-height:1.1;
-      text-transform: lowercase;
-    }
-    .tag{
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(47,74,82,.18);
-      color:var(--muted);
-      font-size:13px;
-      background:rgba(255,255,255,.35);
-    }
-    .hero{padding:22px 0 10px}
-    h1{
-      font-size:40px;line-height:1.12;margin:0 0 10px;
-      letter-spacing:-.2px;
-    }
-    .sub{
-      font-size:18px;line-height:1.55;color:var(--muted);
-      margin:0 0 18px;
-    }
-    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:14px}
-    .btn{
-      display:inline-block;
-      background:var(--accent);
-      color:#fff;
-      padding:14px 18px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:750;
-      box-shadow:0 12px 28px rgba(199,106,58,.22);
-    }
-    .btn.secondary{
-      background:transparent;
-      color:var(--ink);
-      border:1px solid rgba(47,74,82,.25);
-      box-shadow:none;
-      font-weight:650;
-    }
-    .divider{height:1px;background:var(--line);margin:22px 0}
-    .card{
-      background:var(--card);
-      border:1px solid rgba(47,74,82,.10);
-      border-radius:18px;
-      padding:16px;
-    }
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f7f5f2;
+color:#333;
+text-align:center;
+}
 
-    /* video */
-    .videoWrap{
-      margin:18px auto 0;
-      max-width:420px;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(47,74,82,.12);
-      background:#000;
-    }
-    .videoWrap iframe{display:block;width:100%;height:745px}
+header{
+padding:60px 20px;
+background:#ffffff;
+}
 
-    /* grid gallery */
-    section{padding:18px 0}
-    .sectionTitle{font-size:22px;margin:0 0 10px}
-    .sectionDesc{margin:0 0 14px;color:var(--muted);line-height:1.5}
-    .gallery{
-      display:grid;
-      gap:14px;
-    }
-    @media (min-width:720px){
-      .gallery{grid-template-columns:repeat(4,1fr)}
-    }
-    .shot{
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(47,74,82,.10);
-      background:#fff;
-    }
-    .shot img{
-      width:100%;
-      height:100%;
-      display:block;
-      aspect-ratio: 9 / 16;
-      object-fit: cover;
-    }
-    .pairHint{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:10px;
-    }
+h1{
+font-size:42px;
+margin:0;
+}
 
-    /* what you get */
-    .grid3{display:grid;gap:14px}
-    @media (min-width:860px){.grid3{grid-template-columns:repeat(3,1fr)}}
-    .miniTitle{margin:0 0 8px;font-size:16px}
-    .miniText{margin:0;color:var(--muted);line-height:1.5;font-size:14px}
+p{
+max-width:700px;
+margin:20px auto;
+font-size:18px;
+line-height:1.6;
+}
 
-    /* price */
-    .priceBox{
-      display:grid;
-      gap:14px;
-    }
-    @media (min-width:900px){
-      .priceBox{grid-template-columns:1.2fr .8fr;align-items:start}
-    }
-    .price{
-      font-size:36px;
-      font-weight:900;
-      margin:6px 0 6px;
-    }
-    .note{margin:0;color:var(--muted);line-height:1.55}
-    .highlight{
-      background:rgba(199,106,58,.10);
-      border:1px solid rgba(199,106,58,.22);
-      color:var(--ink);
-      padding:12px 14px;
-      border-radius:14px;
-      font-size:14px;
-      line-height:1.45;
-    }
+.video{
+margin:40px auto;
+max-width:420px;
+}
 
-    /* faq */
-    details{
-      background:var(--card);
-      border:1px solid rgba(47,74,82,.10);
-      border-radius:14px;
-      padding:14px 16px;
-      margin:10px 0;
-    }
-    summary{cursor:pointer;font-weight:800}
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+padding:40px;
+max-width:1100px;
+margin:auto;
+}
 
-    footer{
-      padding:26px 0 44px;
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-    }
-  </style>
+.card{
+background:#fff;
+padding:12px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+.cta{
+padding:60px 20px;
+background:#ffffff;
+}
+
+.btn{
+background:#c86c4f;
+color:#fff;
+padding:18px 28px;
+border-radius:40px;
+text-decoration:none;
+font-size:20px;
+display:inline-block;
+margin-top:20px;
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <p class="logo">memoriê digital</p>
-        <span class="tag">vídeo personalizado • caricatura + música • 9:16</span>
-      </div>
-    </header>
 
-    <main>
-      <!-- HERO + VIDEO -->
-      <section class="hero">
-        <h1>Transforme uma pessoa especial em um vídeo único.</h1>
-        <p class="sub">
-          Você envia as fotos e conta os detalhes. Nós criamos uma <strong>caricatura exclusiva</strong> e uma
-          <strong>música feita com carinho</strong> — tudo pronto para celular (vertical 9:16).
-        </p>
+<header>
+<h1>Memoriê Digital</h1>
+<p>Transformamos fotos reais em caricaturas emocionais que celebram pessoas, momentos e histórias de forma leve e única.</p>
+</header>
 
-        <div class="ctaRow">
-          <!-- Amanhã você troca esse link pelo formulário -->
-          <a class="btn" href="#comprar">Quero criar minha Memoriê</a>
-          <a class="btn secondary" href="#exemplos">Ver exemplos</a>
-        </div>
+<div class="video">
+<iframe width="100%" height="420"
+src="https://www.youtube.com/embed/bIqYFL0FFD8"
+frameborder="0" allowfullscreen></iframe>
+</div>
 
-        <div class="videoWrap" aria-label="Vídeo demonstrativo">
-          <iframe
-            src="https://www.youtube.com/embed/bIqYFL0FFD8"
-            title="Memoriê Digital - Demonstração"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
+<section class="gallery">
 
-        <p class="pairHint">✨ Também fazemos Memoriê para <strong>pets</strong> 🐾 (pode aparecer na sua galeria e na sua encomenda).</p>
-      </section>
+<div class="card">
+<img src="memorie-avo.jpg">
+</div>
 
-      <div class="divider"></div>
+<div class="card">
+<img src="memorie-crianca.jpg">
+</div>
 
-      <!-- GALLERY -->
-      <section id="exemplos">
-        <h2 class="sectionTitle">Exemplos</h2>
-        <p class="sectionDesc">Algumas pessoas em foto — e como ficam na versão caricatura.</p>
+<div class="card">
+<img src="memorie-casal.jpg">
+</div>
 
-        <div class="gallery">
-          <div class="shot"><img src="img/memorie-casal.png" alt="Casal - foto" /></div>
-          <div class="shot"><img src="img/memorie-casal_caric.png" alt="Casal - caricatura" /></div>
+<div class="card">
+<img src="memorie-adolescente.jpg">
+</div>
 
-          <div class="shot"><img src="img/memorie-avo.png" alt="Avó - foto" /></div>
-          <div class="shot"><img src="img/memorie-avo_caric.png" alt="Avó - caricatura" /></div>
+</section>
 
-          <div class="shot"><img src="img/memorie-adolescente.png" alt="Adolescente - foto" /></div>
-          <div class="shot"><img src="img/memorie-adolescente_caric.png" alt="Adolescente - caricatura" /></div>
+<section class="cta">
+<h2>Crie sua Memoriê</h2>
+<p>Envie sua foto e transforme em uma caricatura especial a partir de <strong>R$47</strong>.</p>
 
-          <div class="shot"><img src="img/memorie-crianca.png" alt="Criança - foto" /></div>
-          <div class="shot"><img src="img/memorie-crianca_caric.png" alt="Criança - caricatura" /></div>
-        </div>
-      </section>
+<a class="btn" href="#">
+Quero transformar minha foto
+</a>
+</section>
 
-      <!-- WHAT YOU GET -->
-      <section>
-        <div class="grid3">
-          <div class="card">
-            <h3 class="miniTitle">🎨 Caricatura personalizada</h3>
-            <p class="miniText">Traços preservados e estilo afetivo (sem exageros negativos). Reconhecível e bonita.</p>
-          </div>
-          <div class="card">
-            <h3 class="miniTitle">🎵 Música feita sob medida</h3>
-            <p class="miniText">Criada com base no que você contar: tom emocional, humor leve e referências de estilo.</p>
-          </div>
-          <div class="card">
-            <h3 class="miniTitle">📱 Vídeo 9:16 pronto</h3>
-            <p class="miniText">Entrega digital em formato vertical, perfeito para guardar, enviar ou postar.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- PRICE -->
-      <section id="comprar">
-        <div class="priceBox">
-          <div class="card">
-            <h2 class="sectionTitle" style="margin-bottom:6px">Quanto custa</h2>
-            <div class="price">a partir de <span style="color:var(--accent)">R$47</span></div>
-            <p class="note">
-              O valor pode variar conforme quantidade de pessoas/fotos e complexidade do pedido.
-              <br/>Prazo de entrega: <strong>até 7 dias</strong>.
-            </p>
-
-            <div class="ctaRow" style="margin-top:14px">
-              <!-- Amanhã você troca pelo link do formulário -->
-              <a class="btn" href="#" title="Amanhã vamos colocar o link do formulário">Quero criar minha Memoriê</a>
-              <a class="btn secondary" href="#faq">Dúvidas</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <h2 class="sectionTitle" style="margin-bottom:10px">Promoção</h2>
-            <div class="highlight">
-              🎁 <strong>Valor promocional</strong> em pedidos com <strong>3+ fotos</strong> ou mais de uma pessoa/pet.
-              <br/>A condição aparece no fechamento do pedido (amanhã entra pagamento automático).
-            </div>
-
-            <div class="divider"></div>
-
-            <p class="note">
-              💛 Dica: quanto mais detalhes você enviar (apelidos, jeitos, momentos), mais “cara da pessoa” fica o vídeo.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section id="faq">
-        <h2 class="sectionTitle">Perguntas rápidas</h2>
-
-        <details>
-          <summary>O que eu preciso enviar?</summary>
-          <p class="note" style="margin:10px 0 0">
-            Fotos e algumas informações sobre a pessoa (jeitos, relação, momentos, tom da música e estilos que ela gosta).
-            Amanhã a gente fecha o formulário bem redondo.
-          </p>
-        </details>
-
-        <details>
-          <summary>É só para casais?</summary>
-          <p class="note" style="margin:10px 0 0">
-            Não. Funciona para criança, avó, família, amizades, conquistas (ex: vestibular) e também para pets 🐾.
-          </p>
-        </details>
-
-        <details>
-          <summary>Como vou pagar?</summary>
-          <p class="note" style="margin:10px 0 0">
-            Amanhã vamos conectar formulário + pagamento. Você preenche e paga em seguida (Pix/cartão), sem atendimento em tempo real.
-          </p>
-        </details>
-
-        <details>
-          <summary>Qual o formato de entrega?</summary>
-          <p class="note" style="margin:10px 0 0">
-            Vídeo vertical 9:16, pronto para celular (Reels/Stories/WhatsApp/TikTok).
-          </p>
-        </details>
-      </section>
-
-      <section style="padding:10px 0 22px; text-align:center">
-        <a class="btn" href="#" title="Amanhã vamos colocar o link do formulário">Quero criar minha Memoriê</a>
-      </section>
-    </main>
-
-    <footer>
-      © <span id="y"></span> Memoriê Digital
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
