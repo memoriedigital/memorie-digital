@@ -1,4 +1,4 @@
-<!-- ====== MEMORIÊ — FINAL CTA (SUBSTITUIR A SEÇÃO FINAL ATUAL POR ESTA) ====== -->
+<!-- ====== MEMORIÊ — FINAL CTA (VERSÃO BLINDADA) ====== -->
 <section class="md-final" id="pedido">
   <div class="md-final__wrap">
 
@@ -13,23 +13,22 @@
         <span class="md-final__priceValue">R$47</span>
       </div>
 
-      <div class="md-final__bullets">
-        <div class="md-final__bullet">
-          <span class="md-final__dot"></span>
+      <div class="md-final__bullets" role="list">
+        <div class="md-final__bullet" role="listitem">
+          <span class="md-final__dot" aria-hidden="true"></span>
           <span>Você envia fotos e contexto</span>
         </div>
-        <div class="md-final__bullet">
-          <span class="md-final__dot"></span>
+        <div class="md-final__bullet" role="listitem">
+          <span class="md-final__dot" aria-hidden="true"></span>
           <span>Entrega com acabamento premium</span>
         </div>
-        <div class="md-final__bullet">
-          <span class="md-final__dot"></span>
+        <div class="md-final__bullet" role="listitem">
+          <span class="md-final__dot" aria-hidden="true"></span>
           <span>Opcional: música exclusiva</span>
         </div>
       </div>
 
-      <!-- LINK DO BOTÃO: se você já criou pedido.html, mantém assim.
-           Se ainda não, pode trocar por seu link do formulário (Tally) ou checkout. -->
+      <!-- IMPORTANTE: mantenha exatamente class="md-final__btn" -->
       <a class="md-final__btn" href="./pedido.html">Quero fazer a minha agora</a>
 
       <p class="md-final__note">
@@ -43,126 +42,139 @@
 </section>
 
 <style>
-  .md-final{
-    padding: 44px 18px 56px;
-    background: #f6f2ec;
+  /* ====== Escopo total (pra não vazar nem ser “engolido”) ====== */
+  .md-final{ 
+    padding: 48px 18px 56px !important;
+    background: #f6f2ec !important;
   }
-  .md-final__wrap{
-    max-width: 980px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .md-final__title{
-    margin: 0 0 10px;
-    font-size: clamp(28px, 4vw, 44px);
-    line-height: 1.08;
-    letter-spacing: -0.8px;
-    color: #1d1d1f;
+  .md-final .md-final__wrap{
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
   }
 
-  .md-final__sub{
-    margin: 0 auto 22px;
-    max-width: 52ch;
-    font-size: 15.5px;
-    line-height: 1.55;
-    color: rgba(29,29,31,.70);
+  .md-final .md-final__title{
+    margin: 0 0 10px !important;
+    font-size: clamp(30px, 4vw, 46px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.8px !important;
+    color: #1d1d1f !important;
   }
 
-  .md-final__card{
-    margin: 0 auto;
-    max-width: 580px;
-    padding: 22px 18px 18px;
-    border-radius: 22px;
-    border: 1px solid rgba(0,0,0,.08);
-    background: rgba(255,255,255,.82);
-    box-shadow: 0 16px 44px rgba(0,0,0,.06);
-    backdrop-filter: blur(6px);
+  .md-final .md-final__sub{
+    margin: 0 auto 22px !important;
+    max-width: 54ch !important;
+    font-size: 15.5px !important;
+    line-height: 1.55 !important;
+    color: rgba(29,29,31,.70) !important;
   }
 
-  .md-final__price{
-    display: inline-flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(0,0,0,.08);
-    background: rgba(246,242,236,.65);
-    margin-bottom: 14px;
+  .md-final .md-final__card{
+    margin: 0 auto !important;
+    max-width: 620px !important;
+    padding: 22px 18px 18px !important;
+    border-radius: 22px !important;
+    border: 1px solid rgba(0,0,0,.08) !important;
+    background: rgba(255,255,255,.88) !important;
+    box-shadow: 0 18px 50px rgba(0,0,0,.06) !important;
   }
 
-  .md-final__priceLabel{
-    font-size: 13px;
-    color: rgba(29,29,31,.60);
+  .md-final .md-final__price{
+    display: inline-flex !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 10px 14px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(0,0,0,.08) !important;
+    background: rgba(246,242,236,.75) !important;
+    margin: 4px 0 16px !important;
   }
 
-  .md-final__priceValue{
-    font-size: 42px;
-    font-weight: 900;
-    letter-spacing: -1px;
-    color: #1d1d1f;
+  .md-final .md-final__priceLabel{
+    font-size: 13px !important;
+    color: rgba(29,29,31,.60) !important;
   }
 
-  .md-final__bullets{
-    display: grid;
-    gap: 10px;
-    margin: 12px auto 18px;
-    max-width: 420px;
-    text-align: left;
+  .md-final .md-final__priceValue{
+    font-size: 42px !important;
+    font-weight: 900 !important;
+    letter-spacing: -1px !important;
+    color: #1d1d1f !important;
   }
 
-  .md-final__bullet{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 14px;
-    border: 1px solid rgba(0,0,0,.07);
-    background: rgba(246,242,236,.45);
-    color: rgba(29,29,31,.78);
-    font-size: 14px;
-    line-height: 1.35;
+  .md-final .md-final__bullets{
+    display: grid !important;
+    gap: 10px !important;
+    margin: 10px auto 18px !important;
+    max-width: 440px !important;
+    text-align: left !important;
+    padding: 0 !important;
   }
 
-  .md-final__dot{
-    width: 10px;
-    height: 10px;
-    border-radius: 999px;
-    background: #b26b57;
-    box-shadow: 0 6px 16px rgba(178,107,87,.28);
-    flex: 0 0 auto;
+  .md-final .md-final__bullet{
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px 12px !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(0,0,0,.07) !important;
+    background: rgba(246,242,236,.55) !important;
+    color: rgba(29,29,31,.80) !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
   }
 
-  .md-final__btn{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 420px;
-    padding: 14px 16px;
-    border-radius: 999px;
-    background: #b26b57;
-    color: #ffffff;
-    font-weight: 900;
-    letter-spacing: .2px;
-    text-decoration: none;
-    transition: transform .06s ease, filter .12s ease;
-  }
-  .md-final__btn:hover{ filter: brightness(0.98); }
-  .md-final__btn:active{ transform: scale(.99); }
-
-  .md-final__note{
-    margin: 12px 0 0;
-    font-size: 12px;
-    line-height: 1.45;
-    color: rgba(29,29,31,.55);
+  .md-final .md-final__dot{
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 999px !important;
+    background: #b26b57 !important;
+    box-shadow: 0 8px 18px rgba(178,107,87,.28) !important;
+    flex: 0 0 auto !important;
   }
 
-  .md-final__footer{
-    margin: 14px 0 0;
-    font-size: 12px;
-    color: rgba(29,29,31,.55);
+  /* ====== Blindagem de link/âncora (pra não virar “azul sublinhado”) ====== */
+  .md-final a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  .md-final .md-final__btn{
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    padding: 14px 16px !important;
+    border-radius: 999px !important;
+    background: #b26b57 !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    letter-spacing: .2px !important;
+    border: 0 !important;
+    box-shadow: 0 14px 30px rgba(178,107,87,.20) !important;
+  }
+
+  .md-final .md-final__btn:hover{
+    filter: brightness(0.98) !important;
+  }
+  .md-final .md-final__btn:active{
+    transform: scale(.99) !important;
+  }
+
+  .md-final .md-final__note{
+    margin: 12px 0 0 !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+    color: rgba(29,29,31,.55) !important;
+  }
+
+  .md-final .md-final__footer{
+    margin: 14px 0 0 !important;
+    font-size: 12px !important;
+    color: rgba(29,29,31,.55) !important;
   }
 </style>
 <!-- ====== /MEMORIÊ — FINAL CTA ====== -->
