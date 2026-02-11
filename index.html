@@ -247,23 +247,114 @@
       font-size: 14px;
     }
 
-    /* Bottom price block */
+    /* ===== FINAL / PRICE (MELHORADO) ===== */
     .priceCard{
       padding: 18px 16px;
       text-align:center;
     }
-    .price{
-      font-size: clamp(28px, 4.2vw, 40px);
-      margin: 8px 0 6px;
-      letter-spacing:-0.02em;
+
+    .priceWrap{
+      width: min(740px, 100%);
+      margin: 0 auto;
+      padding: 16px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(31,41,55,.10);
+      background: rgba(255,255,255,.66);
+      box-shadow: 0 18px 44px rgba(17,24,39,.08);
     }
+
+    .priceBadge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(168,107,85,.10);
+      color: rgba(31,41,55,.85);
+      border: 1px solid rgba(168,107,85,.18);
+      font-size: 13px;
+      margin: 6px auto 10px;
+    }
+    .priceBadge .check{
+      width:18px;height:18px;display:inline-grid;place-items:center;
+      background: rgba(168,107,85,.18);
+      border-radius:999px;
+      font-weight:800;
+    }
+
+    .priceTitle{
+      margin: 4px 0 8px;
+      font-size: clamp(24px, 3.8vw, 34px);
+      letter-spacing:-0.02em;
+      line-height: 1.15;
+    }
+
+    .priceHero{
+      display:flex;
+      align-items:baseline;
+      justify-content:center;
+      gap: 10px;
+      margin: 10px 0 6px;
+      flex-wrap: wrap;
+    }
+    .priceHero .from{
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .priceHero .value{
+      font-size: clamp(34px, 5vw, 52px);
+      letter-spacing:-0.02em;
+      font-weight: 900;
+      color: var(--ink);
+    }
+    .priceHero .value strong{ color: var(--brand-2); }
+
+    .priceBullets{
+      width: min(520px, 100%);
+      margin: 12px auto 0;
+      display:grid;
+      gap: 10px;
+      text-align:left;
+    }
+    .bullet{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.60);
+      border: 1px solid rgba(31,41,55,.10);
+    }
+    .dot{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: rgba(168,107,85,.75);
+      box-shadow: 0 10px 22px rgba(168,107,85,.22);
+      margin-top: 4px;
+      flex: 0 0 auto;
+    }
+    .bullet p{
+      margin:0;
+      color: rgba(31,41,55,.86);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .bullet p span{
+      color: var(--muted);
+      display:block;
+      margin-top: 2px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
     .fine{
       color: var(--muted);
       font-size: 13px;
       line-height: 1.6;
-      margin: 0 auto;
-      max-width: 70ch;
+      margin: 12px auto 0;
+      max-width: 72ch;
     }
+
     footer{
       text-align:center;
       color: rgba(107,114,128,.95);
@@ -277,6 +368,8 @@
       .hero{ padding: 16px; }
       .grid{ grid-template-columns: 1fr 1fr; }
       .stepList{ grid-template-columns: 1fr 1fr; }
+      .priceCard{ padding: 20px 18px; }
+      .priceWrap{ padding: 18px 18px; }
     }
   </style>
 </head>
@@ -298,7 +391,6 @@
     <!-- HERO VIDEO -->
     <section class="card hero">
       <div class="videoShell" aria-label="Vídeo de apresentação">
-        <!-- Troque o src pelo seu vídeo do YouTube (Shorts) -->
         <iframe
           class="video"
           src="https://www.youtube.com/embed/bIqYFL0FFD8?rel=0&modestbranding=1"
@@ -322,7 +414,6 @@
         </p>
 
         <div class="btnRow">
-          <!-- Link do formulário (você troca amanhã) -->
           <a class="btn btnPrimary" href="#final">Quero transformar minha foto</a>
           <a class="btn btnGhost" href="#exemplos">Ver exemplos</a>
         </div>
@@ -337,7 +428,6 @@
       </p>
 
       <div class="grid">
-        <!-- ✅ arquivos que você confirmou -->
         <figure class="imgCard">
           <img src="memorie-casal.jpg" alt="Exemplo casal — antes e depois" loading="lazy" />
         </figure>
@@ -398,28 +488,66 @@
       </div>
     </section>
 
-    <!-- FINAL / PRICE (sem a parte “E se a sua história fosse a próxima?”) -->
+    <!-- FINAL / PRICE (MELHORADO) -->
     <section id="final" class="section card priceCard">
       <h2 class="sectionTitle">Pronto pra transformar a sua?</h2>
       <p class="sectionDesc">
         Cada Memoriê é criada de forma exclusiva, respeitando quem a pessoa é e o que ela representa.
       </p>
 
-      <div class="price">a partir de <strong>R$47</strong></div>
-      <p class="fine">
-        A caricatura é um bônus — o carro-chefe é a experiência completa (com opção de música exclusiva).
-        <br />
-        *Valores finais variam conforme o pedido e são confirmados no atendimento.
-      </p>
+      <div class="priceWrap">
+        <div class="priceBadge">
+          <span class="check">✓</span>
+          <span>Valor só no final (do jeito certo)</span>
+        </div>
 
-      <div class="btnRow" style="margin-top:14px;">
-        <!-- Troque esse link pelo seu formulário amanhã -->
-        <a class="btn btnPrimary" href="#" onclick="alert('Formulário e pagamento entram amanhã 🙂'); return false;">Quero fazer a minha agora</a>
+        <p class="priceTitle">Uma lembrança com alma — feita sob medida.</p>
+
+        <div class="priceHero" aria-label="Preço">
+          <span class="from">a partir de</span>
+          <span class="value"><strong>R$47</strong></span>
+        </div>
+
+        <div class="priceBullets" role="list">
+          <div class="bullet" role="listitem">
+            <span class="dot" aria-hidden="true"></span>
+            <p>
+              Você envia foto + contexto
+              <span>Rapidinho, sem enrolação. O que importa é a história.</span>
+            </p>
+          </div>
+
+          <div class="bullet" role="listitem">
+            <span class="dot" aria-hidden="true"></span>
+            <p>
+              Experiência afetiva (carro-chefe)
+              <span>Arte com acabamento premium — feita pra emocionar.</span>
+            </p>
+          </div>
+
+          <div class="bullet" role="listitem">
+            <span class="dot" aria-hidden="true"></span>
+            <p>
+              Música exclusiva (opcional) + caricatura (bônus)
+              <span>Se fizer sentido pro pedido, eu incluo como toque final.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="btnRow" style="margin-top:14px;">
+          <a class="btn btnPrimary" href="./pedido.html">Quero fazer a minha agora</a>
+          <a class="btn btnGhost" href="#exemplos">Ver exemplos</a>
+        </div>
+
+        <p class="fine">
+          *Valores finais variam conforme o pedido e são confirmados no atendimento.
+          Nada é publicado sem sua permissão.
+        </p>
+
+        <footer>
+          © Memoriê Digital · Feito com carinho no Brasil
+        </footer>
       </div>
-
-      <footer>
-        © Memoriê Digital · Feito com carinho no Brasil
-      </footer>
     </section>
 
   </main>
