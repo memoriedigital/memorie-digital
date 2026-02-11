@@ -1,462 +1,222 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Memoriê Digital</title>
-  <meta name="description" content="Transformamos pessoas reais em experiências afetivas únicas — arte e música sob medida para celebrar histórias." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --bg:#fbf6ef;
-      --card:#ffffff;
-      --text:#1f1f1f;
-      --muted:#6b6b6b;
-      --line:rgba(0,0,0,.06);
-      --shadow:0 18px 55px rgba(0,0,0,.08);
-      --radius:24px;
-      --accent:#b86c54;   /* terracota elegante */
-      --accent2:#2f2a28;  /* quase preto */
-    }
+<title>Memoriê Digital</title>
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(184,108,84,.14), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(0,0,0,.06), transparent 55%),
-        var(--bg);
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
+<style>
 
-    .wrap{
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 28px 18px 52px;
-    }
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+background:#f4f1ee;
+color:#333;
+text-align:center;
+}
 
-    .topbar{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding-top:8px;
-    }
+.container{
+max-width:480px;
+margin:auto;
+padding:24px;
+}
 
-    .brand{
-      text-align:center;
-      padding: 10px 0 18px;
-    }
+.logo{
+width:180px;
+margin:20px auto 10px;
+display:block;
+}
 
-    .brand h1{
-      margin: 10px 0 8px;
-      font-size: clamp(34px, 7vw, 56px);
-      line-height:1.02;
-      letter-spacing:-0.02em;
-      font-weight: 800;
-      color: var(--accent2);
-    }
+h1{
+font-size:34px;
+margin:10px 0 8px;
+}
 
-    .brand p{
-      margin: 0 auto;
-      max-width: 52ch;
-      color: var(--muted);
-      font-size: 16.5px;
-      line-height: 1.55;
-    }
+.subtitle{
+font-size:17px;
+line-height:1.6;
+color:#555;
+margin-bottom:22px;
+}
 
-    .heroCard{
-      margin-top: 20px;
-      background: rgba(255,255,255,.65);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
+.card{
+background:#fff;
+border-radius:22px;
+padding:22px;
+margin:22px 0;
+box-shadow:0 8px 24px rgba(0,0,0,0.05);
+}
 
-    .heroInner{
-      padding: 18px;
-    }
+.badge{
+display:inline-block;
+background:#fff;
+border-radius:20px;
+padding:8px 14px;
+font-size:13px;
+margin-bottom:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
 
-    .video{
-      border-radius: 18px;
-      overflow:hidden;
-      background:#000;
-      border:1px solid var(--line);
-    }
+h2{
+font-size:24px;
+margin:10px 0;
+}
 
-    .video iframe{
-      width:100%;
-      aspect-ratio: 9/16;
-      border:0;
-      display:block;
-    }
+p{
+font-size:16px;
+line-height:1.6;
+color:#666;
+}
 
-    .heroText{
-      padding: 18px 6px 6px;
-      text-align:center;
-    }
+.btn{
+display:block;
+background:#b86547;
+color:#fff;
+text-decoration:none;
+padding:16px;
+border-radius:40px;
+margin:18px auto;
+font-weight:600;
+width:80%;
+}
 
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.7);
-      color: rgba(0,0,0,.75);
-      font-size: 13px;
-      font-weight: 600;
-    }
+.btn-light{
+background:#eee;
+color:#333;
+}
 
-    .heroText h2{
-      margin: 14px 0 8px;
-      font-size: clamp(22px, 4.8vw, 34px);
-      line-height:1.15;
-      letter-spacing:-0.02em;
-    }
+.img-box{
+background:#fff;
+border-radius:22px;
+padding:12px;
+margin:18px 0;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
 
-    .heroText p{
-      margin: 0 auto;
-      max-width: 58ch;
-      color: var(--muted);
-      line-height:1.65;
-      font-size: 16px;
-    }
+.img-box img{
+width:100%;
+border-radius:16px;
+display:block;
+}
 
-    .ctaRow{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top: 16px;
-    }
+.price-section{
+background:#fff;
+border-radius:22px;
+padding:26px;
+margin-top:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
 
-    .btn{
-      border:0;
-      cursor:pointer;
-      text-decoration:none;
-      padding: 14px 18px;
-      border-radius: 999px;
-      font-weight: 800;
-      letter-spacing:.01em;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      transition: transform .08s ease, box-shadow .12s ease, opacity .12s ease;
-      user-select:none;
-      min-width: 240px;
-    }
-    .btn:active{ transform: translateY(1px); }
+.price{
+font-size:34px;
+font-weight:700;
+margin:10px 0;
+}
 
-    .btnPrimary{
-      background: linear-gradient(180deg, rgba(184,108,84,1), rgba(163,84,63,1));
-      color:#fff;
-      box-shadow: 0 18px 35px rgba(184,108,84,.28);
-    }
-    .btnPrimary:hover{ opacity:.96; }
+.footer{
+font-size:12px;
+margin-top:30px;
+color:#999;
+}
 
-    .btnGhost{
-      background: rgba(255,255,255,.75);
-      border: 1px solid var(--line);
-      color: var(--accent2);
-      min-width: 180px;
-    }
+.video-box{
+border-radius:22px;
+overflow:hidden;
+margin-bottom:20px;
+}
 
-    .section{
-      margin-top: 26px;
-    }
-
-    .sectionTitle{
-      text-align:center;
-      margin: 0 auto 14px;
-      max-width: 60ch;
-    }
-    .sectionTitle h3{
-      margin: 0 0 8px;
-      font-size: 22px;
-      letter-spacing:-0.01em;
-    }
-    .sectionTitle p{
-      margin: 0;
-      color: var(--muted);
-      line-height:1.6;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .imgCard{
-      background: rgba(255,255,255,.72);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.06);
-      overflow:hidden;
-    }
-
-    .imgCard img{
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
-    .copyCard{
-      background: rgba(255,255,255,.72);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.06);
-      padding: 18px;
-      text-align:center;
-    }
-
-    .copyCard strong{
-      display:block;
-      font-size: 19px;
-      margin-bottom: 6px;
-      letter-spacing:-0.01em;
-    }
-
-    .copyCard span{
-      color: var(--muted);
-      line-height:1.65;
-      display:block;
-    }
-
-    .steps{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .step{
-      background: rgba(255,255,255,.72);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 14px 14px;
-      display:flex;
-      gap: 12px;
-      align-items:flex-start;
-    }
-
-    .badge{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: rgba(184,108,84,.14);
-      border: 1px solid rgba(184,108,84,.22);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight: 900;
-      color: var(--accent);
-      flex: 0 0 auto;
-    }
-
-    .step h4{
-      margin:0 0 3px;
-      font-size: 16px;
-    }
-
-    .step p{
-      margin:0;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14.5px;
-    }
-
-    .priceCard{
-      margin-top: 22px;
-      background: rgba(255,255,255,.78);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      text-align:center;
-    }
-
-    .priceTop{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 9px 13px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.75);
-      font-weight: 800;
-      color: var(--accent2);
-      font-size: 13px;
-    }
-
-    .priceCard h3{
-      margin: 14px 0 8px;
-      font-size: 24px;
-      letter-spacing:-0.02em;
-    }
-
-    .priceCard p{
-      margin: 0 auto;
-      max-width: 60ch;
-      color: var(--muted);
-      line-height:1.65;
-    }
-
-    .price{
-      margin: 14px 0 6px;
-      font-size: 40px;
-      font-weight: 900;
-      letter-spacing:-0.03em;
-      color: var(--accent2);
-    }
-
-    .small{
-      font-size: 12.5px;
-      color: rgba(0,0,0,.55);
-      line-height:1.45;
-      margin-top: 8px;
-    }
-
-    footer{
-      text-align:center;
-      margin-top: 22px;
-      color: rgba(0,0,0,.42);
-      font-size: 12px;
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="topbar"></div>
 
-    <div class="brand">
-      <h1>Memoriê Digital</h1>
-      <p>
-        Pessoas reais. Histórias únicas.
-        Aqui, cada imagem representa algo maior do que uma foto — é um jeito de guardar o que importa, do seu jeito.
-      </p>
-    </div>
+<div class="container">
 
-    <section class="heroCard">
-      <div class="heroInner">
-        <div class="video" id="video">
-          <!-- Seu Shorts -->
-          <iframe
-            src="https://www.youtube.com/embed/bIqYFL0FFD8?rel=0&modestbranding=1"
-            title="Memoriê Digital - Exemplo"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
+<!-- LOGO -->
+<img src="logomemoriê.png" class="logo">
 
-        <div class="heroText">
-          <div class="kicker">✨ Uma experiência afetiva feita sob medida</div>
-          <h2>Porque algumas histórias não cabem só na memória.</h2>
-          <p>
-            Você envia a foto e conta o contexto.
-            A gente transforma isso em uma <strong>experiência</strong> — com arte e, se você quiser, uma música exclusiva.
-            Sem exagero. Sem cara de IA. Só verdade.
-          </p>
+<h1>Memoriê Digital</h1>
 
-          <div class="ctaRow">
-            <!-- Troque o link abaixo pelo seu WhatsApp/checkout -->
-            <a class="btn btnPrimary" href="#comprar">Quero transformar minha foto</a>
-            <a class="btn btnGhost" href="#exemplos">Ver exemplos</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<p class="subtitle">
+Pessoas reais. Histórias únicas. Aqui, cada imagem representa algo maior do que uma foto — é um jeito de guardar o que importa, do seu jeito.
+</p>
 
-    <section class="section" id="exemplos">
-      <div class="sectionTitle">
-        <h3>Veja como fica na prática</h3>
-        <p>Quatro exemplos reais do antes e depois — direto ao ponto, sem poluição.</p>
-      </div>
+<!-- VIDEO -->
+<div class="video-box">
+<iframe width="100%" height="520"
+src="https://www.youtube.com/embed/bIqYFL0FFD8"
+title="Memoriê"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
 
-      <div class="grid">
-        <div class="imgCard">
-          <img src="memorie-casal.jpg" alt="Memoriê casal" loading="lazy">
-        </div>
+<div class="card">
 
-        <div class="imgCard">
-          <img src="memorie-adolescente.jpg" alt="Memoriê adolescente" loading="lazy">
-        </div>
+<div class="badge">✨ Uma experiência afetiva feita sob medida</div>
 
-        <div class="imgCard">
-          <img src="memorie-avo.jpg" alt="Memoriê avó" loading="lazy">
-        </div>
+<h2>Porque algumas histórias não cabem só na memória.</h2>
 
-        <div class="imgCard">
-          <img src="memorie-crianca.jpg" alt="Memoriê criança" loading="lazy">
-        </div>
-      </div>
-    </section>
+<p>
+Você envia a foto e conta o contexto. A gente transforma isso em uma experiência — com arte e, se você quiser, uma música exclusiva. Sem exagero. Sem cara de IA. Só verdade.
+</p>
 
-    <section class="section">
-      <div class="copyCard">
-        <strong>Não criamos apenas imagens.</strong>
-        <span>Não criamos apenas músicas. Criamos experiências afetivas que fazem alguém se reconhecer dentro de uma história.</span>
-      </div>
+<a class="btn" href="#">Quero transformar minha foto</a>
+<a class="btn btn-light" href="#">Ver exemplos</a>
 
-      <div class="steps">
-        <div class="step">
-          <div class="badge">1</div>
-          <div>
-            <h4>Você envia a foto</h4>
-            <p>Pode ser uma pessoa, casal, família, criança, avó… o que importa é a história por trás.</p>
-          </div>
-        </div>
+</div>
 
-        <div class="step">
-          <div class="badge">2</div>
-          <div>
-            <h4>Conta o contexto (rapidinho)</h4>
-            <p>Quem é, o que representa e a vibe que você quer (leve, divertida, romântica, etc.).</p>
-          </div>
-        </div>
+<h2>Veja como fica na prática</h2>
+<p>Quatro exemplos reais do antes e depois — direto ao ponto, sem poluição.</p>
 
-        <div class="step">
-          <div class="badge">3</div>
-          <div>
-            <h4>Recebe algo pra guardar</h4>
-            <p>Uma entrega feita pra emocionar — com acabamento premium e com a pessoa reconhecível.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="img-box">
+<img src="memorie-casal.jpg">
+</div>
 
-    <section class="priceCard" id="comprar">
-      <div class="priceTop">✅ Valor só no final (do jeito certo)</div>
-      <h3>E se a sua história fosse a próxima?</h3>
-      <p>
-        Cada Memoriê é criada de forma exclusiva, respeitando quem a pessoa é e o que ela representa.
-      </p>
+<div class="img-box">
+<img src="memorie-adolescente.jpg">
+</div>
 
-      <div class="price">a partir de R$47</div>
-      <p>
-        A caricatura é um bônus — o carro-chefe é a experiência completa (com opção de música exclusiva).
-      </p>
+<div class="img-box">
+<img src="memorie-avo.jpg">
+</div>
 
-      <div class="ctaRow" style="margin-top:14px;">
-        <!-- Troque pelo seu link real (WhatsApp, checkout, formulário) -->
-        <a class="btn btnPrimary" href="https://wa.me/" target="_blank" rel="noopener">Quero fazer a minha agora</a>
-      </div>
+<div class="img-box">
+<img src="memorie-crianca.jpg">
+</div>
 
-      <div class="small">
-        *Prazo e detalhes finais são combinados no atendimento. Não publicamos sua foto sem permissão.
-      </div>
-    </section>
+<p style="margin-top:30px;font-weight:500;">
+✨ Cada Memoriê começa com uma história — não com um preço.
+</p>
 
-    <footer>
-      © Memoriê Digital • Feito com carinho no Brasil
-    </footer>
-  </div>
+<div class="price-section">
+
+<h2>E se a sua história fosse a próxima?</h2>
+
+<p>
+Cada Memoriê é criada de forma exclusiva, respeitando quem a pessoa é e o que ela representa.
+</p>
+
+<div class="price">a partir de R$47</div>
+
+<p>
+A caricatura é um bônus — o carro-chefe é a experiência completa (com opção de música exclusiva).
+</p>
+
+<a class="btn" href="#">Quero criar a minha agora</a>
+
+<p style="font-size:12px;margin-top:14px;">
+Prazo e detalhes finais são combinados no atendimento. Não publicamos sua foto sem permissão.
+</p>
+
+</div>
+
+<div class="footer">
+© Memoriê Digital • Feito com carinho no Brasil
+</div>
+
+</div>
+
 </body>
 </html>
