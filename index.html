@@ -16,6 +16,8 @@
 --brand-2:#8d5a47;
 --shadow:0 22px 60px rgba(17,24,39,.10);
 --radius:22px;
+/* Cor do novo bloco emocional */
+--warm-bg:#fdf6e9; 
 }
 
 *{box-sizing:border-box}
@@ -95,6 +97,18 @@ border:1px solid rgba(31,41,55,.14);
 .section{margin-top:18px;}
 .sectionTitle{text-align:center;font-size:24px;margin:0 0 6px;}
 .sectionDesc{text-align:center;color:var(--muted);max-width:62ch;margin:0 auto 14px;}
+
+/* Estilo do novo Bloco Emocional */
+.emotionalBlock {
+background: var(--warm-bg);
+border: 1px solid rgba(168,107,85,.15);
+padding: 32px 20px;
+margin: 24px 0;
+text-align: center;
+border-radius: var(--radius);
+}
+.emotionalBlock h3 { font-size: 22px; color: var(--brand-2); margin-top: 0; }
+.emotionalBlock p { color: var(--muted); line-height: 1.6; max-width: 60ch; margin: 0 auto; }
 
 .grid{display:grid;gap:14px;grid-template-columns:1fr;}
 .imgCard{
@@ -199,8 +213,13 @@ A caricatura acompanha como parte da experiência.
 <div class="step"><div class="num">1</div><div><h4>Você envia a história</h4><p>Foto + contexto + emoção.</p></div></div>
 <div class="step"><div class="num">2</div><div><h4>Música exclusiva</h4><p>Criada a partir do que você viveu.</p></div></div>
 <div class="step"><div class="num">3</div><div><h4>Vídeo emocional</h4><p>Entrega pronta pra guardar.</p></div></div>
-<div class="step"><div class="num">4</div><div><h4>Arquivos separados (opcional)</h4><p>+R$9,90 pra usar como quiser.</p></div></div>
+<div class="step"><div class="num">4</div><div><h4>Arquivos separados (opcional)</h4><p>+R$12,90 pra usar como quiser.</p></div></div>
 </div>
+</section>
+
+<section class="emotionalBlock">
+    <h3>Porque momentos únicos não merecem ser apenas mais uma foto esquecida na galeria.</h3>
+    <p>O Memoriê Digital transforma o "lembra daquele dia?" em uma experiência que você pode ouvir, ver e sentir. É o presente para quem já tem tudo, mas valoriza o que é eterno: a própria história.</p>
 </section>
 
 <section id="final" class="section card priceCard">
@@ -212,11 +231,11 @@ A caricatura acompanha como parte da experiência.
 <div class="priceBullets">
 <div class="bullet"><span class="dot"></span><p>Música exclusiva (o coração do Memoriê)</p></div>
 <div class="bullet"><span class="dot"></span><p>Caricatura integrada ao vídeo emocional</p></div>
-<div class="bullet"><span class="dot"></span><p>Arquivos separados opcionais +R$9,90</p></div>
+<div class="bullet"><span class="dot"></span><p>Arquivos separados opcionais +R$12,90</p></div>
 </div>
 
-<div class="btnRow" style="margin-top:14px;">
-<a class="btn btnPrimary" href="https://pay.hotmart.com/T104398831L" target="_blank" rel="noopener">Quero criar meu Memoriê</a>
+<div class="btnRow" style="margin-top:24px;">
+<a class="btn btnPrimary" href="https://pay.hotmart.com/N104428678F?checkoutMode=10" target="_blank" rel="noopener">Quero criar meu Memoriê</a>
 </div>
 
 <p class="fine">
